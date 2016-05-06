@@ -14,6 +14,3 @@ def drawCircle(myturtle, x, y, r):
     myturtle.setposition(x, y)
     myturtle.pendown()
     myturtle.circle(r)
-
-    #Exits on user click
-    turtle.exitonclick()

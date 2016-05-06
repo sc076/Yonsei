@@ -1,5 +1,3 @@
-#As there is no answer in YSCEC, I assume the turtle object
-#is created in the body and then I Initialize the window
 import turtle
 
 def drawSquare(myturtle, x, y, a):
@@ -20,6 +18,3 @@ def drawSquare(myturtle, x, y, a):
     myturtle.setposition(x+a, y+a)
     myturtle.setposition(x, y+a)
     myturtle.setposition(x, y)
-
-    #Closes the window on user click
-    myturtle.exitonclick()

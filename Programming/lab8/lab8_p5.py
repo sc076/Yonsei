@@ -1,5 +1,4 @@
 """ Polish notation type based calculator
-
 """
 import stack
 import sys
@@ -30,7 +29,10 @@ def error():
     sys.exit('Not enough operands in expression')
 
 def calculator(element, numbers):
-
+    """ Calculator function that takes the first
+        two numbers on the top of the stack and
+        decides what type is the operand.
+    """
     a = int(stack.pop(numbers)) if not stack.isEmpty(numbers) else error()
     b = int(stack.pop(numbers)) if not stack.isEmpty(numbers) else error()
 
@@ -48,6 +50,14 @@ def calculator(element, numbers):
         result = division(a,b)
         stack.push(numbers, result)
 
+
+""" Main functionality of the program.
+
+    Asks user to enter a sequence of
+    operands and operators.
+    Determines to which group it belongs
+    and do the calculation.
+"""
 
 num = stack.getStack()
 

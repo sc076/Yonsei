@@ -8,7 +8,7 @@ char = input('Enter parentheses and/or braces: ')
 
 sequence = stack.getStack()
 
-#for every elemnt in the received string checks the type and pushes/pops in/from the stack
+#for every element in the received string checks the type and pushes/pops in/from the stack
 for el in char:
     if el == '(' or el == '{':
         stack.push(sequence, el)

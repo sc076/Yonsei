@@ -1,9 +1,10 @@
 #Palindrome Checker Program
 
-#Function to reverse a string
 def revrseStr(s):
+    """ Function to reverse one half of
+        the inputed string.
+    """
     rvr = s[::-1]
-
     return rvr
 
 #welcome message
@@ -33,5 +34,5 @@ while chars != empty_string:
         else:
             print(chars, 'is NOT a palindrome\n')
 
-        #get next string from user
-        chars = input('Enter string to check: ')
+    #get next string from user
+    chars = input('Enter string to check: ')
