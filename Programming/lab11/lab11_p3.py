@@ -20,7 +20,7 @@ def openFile(file_name):
         opened = open(file_name, 'r')
         return opened
     except:
-        quit('Wrong file name... Please, try again.')
+        quit('There was an error while opening the file.\nPlease, try again.')
 
 def generateKey(file_n):
     """ Function generating encryption key.
@@ -79,23 +79,22 @@ def encrypt(o_file, file_name):
                 encrypted.write(char)
     encrypted.close
 
+def decrypt(file_name):
+
+    
+
 # --- MAIN
-enc = False
-dec = False
-
 file_name = input('Enter a filename: ')
-
-opened_file = openFile(file_name)
-file_ext = file_name.split('.')[1]
-file_n = file_name.split('.')[0]
+try:
+    file_ext = file_name.split('.')[1]
+    file_n = file_name.split('.')[0]
+except:
+    quit('Wrong file. Try again.')
 
 if file_ext == 'txt':
-    enc = True
-else:
-    dec = True
-
-if enc == True:
+    opened_file = openFile(file_name)
     encrypt(opened_file, file_n)
-elif dec == True:
-    # Function for decryption
-    print('Decrypt')
+elif file_ext == 'enc':
+    decrypt(file_n)
+else:
+    print('Wrong file extension. Try again.')
