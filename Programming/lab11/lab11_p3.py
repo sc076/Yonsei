@@ -65,11 +65,18 @@ def encrypt(o_file, file_name):
 
     # Starts encrypting
     for char in content:
-        new_char = key.get(char)
-        if new_char != None:
-            encrypted.write(new_char)
+        if not char.isupper():
+            new_char = key.get(char)
+            if new_char != None:
+                encrypted.write(new_char)
+            else:
+                encrypted.write(char)
         else:
-            encrypted.write(char)
+            new_char = key.get(char.lower())
+            if new_char != None:
+                encrypted.write(new_char.upper())
+            else:
+                encrypted.write(char)
     encrypted.close
 
 # --- MAIN
