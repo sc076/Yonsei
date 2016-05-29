@@ -7,6 +7,11 @@
     6. Decrypt with a given file and a key """
 
 import sys
+import random
+import copy
+
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+            'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 def openFile(file_name):
     """Opens file and handles possible errors"""
@@ -17,19 +22,61 @@ def openFile(file_name):
     except:
         quit('Wrong file name... Please, try again.')
 
+def generateKey(file_n):
+    """ Function generating encryption key.
+        In the format of dictionary with pairs:
+        [real_value] -> encrypted_value
+        Writes the key in file with extension key"""
+
+    values = copy.deepcopy(alphabet)
+    random.shuffle(values)
+
+    code = {}
+
+    # Generate random dictionary from alphabet structure
+    for k in range(len(alphabet)):
+        code[alphabet[k]] = values[k]
+
+    # Constructs key file name
+    file_name = file_n + '.key'
+
+    # Save the dictionary values in a .key file
+    code_file = open(file_name, 'w')
+    for key in code:
+        code_file.write(key + ',' + code[key] + '\n')
+
+    # closes the file, returns the encryption code
+    code_file.close()
+
+    return code
+
+def encrypt(o_file, file_name):
+    """ Function implementing the encryption of the message """
+
+    # gets the randomly generated key
+    key = generateKey(file_name)
+
+    # reads the message contained in the file
+    content = o_file.read()
+
+    print(content)
+
+enc = False
+dec = False
 
 file_name = input('Enter a filename: ')
-encrypt = False
-decrypt = False
-
-if (file_name.split('.'))[1] == 'txt':
-    encrypt = True
-else:
-    decrypt = True
 
 opened_file = openFile(file_name)
+file_ext = file_name.split('.')[1]
+file_n = file_name.split('.')[0]
 
-if encrypt:
-    # Function for encryption
+if file_ext == 'txt':
+    enc = True
 else:
+    dec = True
+
+if enc == True:
+    encrypt(openFile, file_n)
+elif dec == True:
     # Function for decryption
+    print('Decrypt')
