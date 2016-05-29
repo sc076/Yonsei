@@ -77,7 +77,7 @@ def encrypt(o_file, file_name):
                 encrypted.write(new_char.lower())
             else:
                 encrypted.write(char)
-    encrypted.close
+    encrypted.close()
 
 def getKey(file_name):
     # Opens and reads the key file
@@ -87,21 +87,35 @@ def getKey(file_name):
 
     while line:
         key_val = line.split(',')
-        key_dic[key_val[0]] = key_val[1]
+        key_dic[key_val[1]] = key_val[0]
         line = key_file.readline().strip('\n')
 
     key_file.close()
     return key_dic
 
-def decrypt(file_name):
+def decrypt(o_file, file_name):
     # Retrieves the decryption key
     key_dic = getKey(file_name)
+
+    content = o_file.read()
+    o_file.close()
 
     # Starts decryption
     decrypted = open(file_name + '2.txt', 'w')
 
-    
-
+    for char in content:
+        if char.isupper():
+            new_char = key_dic.get(char)
+            if new_char != None:
+                decrypted.write(new_char)
+            else:
+                decrypted.write(char)
+        else:
+            new_char = key_dic.get(char.upper())
+            if new_char != None:
+                decrypted.write(new_char.lower())
+            else:
+                decrypted.write(char)
     decrypted.close()
 
 # --- MAIN
@@ -116,6 +130,7 @@ if file_ext == 'txt':
     opened_file = openFile(file_name)
     encrypt(opened_file, file_n)
 elif file_ext == 'enc':
-    decrypt(file_n)
+    opened_file = openFile(file_name)
+    decrypt(opened_file, file_n)
 else:
     print('Wrong file extension. Try again.')
