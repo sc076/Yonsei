@@ -10,8 +10,8 @@ import sys
 import random
 import copy
 
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
-            'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+            'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
 def openFile(file_name):
     """Opens file and handles possible errors"""
@@ -33,17 +33,17 @@ def generateKey(file_n):
 
     code = {}
 
-    # Generate random dictionary from alphabet structure
-    for k in range(len(alphabet)):
-        code[alphabet[k]] = values[k]
-
     # Constructs key file name
     file_name = file_n + '.key'
-
-    # Save the dictionary values in a .key file
     code_file = open(file_name, 'w')
-    for key in code:
-        code_file.write(key + ',' + code[key] + '\n')
+
+    # Generate random dictionary from alphabet structure
+    # and saves the pattern in a file
+    for k in range(len(alphabet)):
+        key = alphabet[k]
+        val = values[k]
+        code[key] = val
+        code_file.write(key + ',' + val + '\n')
 
     # closes the file, returns the encryption code
     code_file.close()
@@ -65,16 +65,16 @@ def encrypt(o_file, file_name):
 
     # Starts encrypting
     for char in content:
-        if not char.isupper():
+        if char.isupper():
             new_char = key.get(char)
             if new_char != None:
                 encrypted.write(new_char)
             else:
                 encrypted.write(char)
         else:
-            new_char = key.get(char.lower())
+            new_char = key.get(char.upper())
             if new_char != None:
-                encrypted.write(new_char.upper())
+                encrypted.write(new_char.lower())
             else:
                 encrypted.write(char)
     encrypted.close
