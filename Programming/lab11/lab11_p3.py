@@ -58,9 +58,21 @@ def encrypt(o_file, file_name):
 
     # reads the message contained in the file
     content = o_file.read()
+    o_file.close()
 
-    print(content)
+    # creating encrypted file
+    encrypted = open(file_name + '.enc', 'w')
 
+    # Starts encrypting
+    for char in content:
+        new_char = key.get(char)
+        if new_char != None:
+            encrypted.write(new_char)
+        else:
+            encrypted.write(char)
+    encrypted.close
+
+# --- MAIN
 enc = False
 dec = False
 
@@ -76,7 +88,7 @@ else:
     dec = True
 
 if enc == True:
-    encrypt(openFile, file_n)
+    encrypt(opened_file, file_n)
 elif dec == True:
     # Function for decryption
     print('Decrypt')
