@@ -79,9 +79,30 @@ def encrypt(o_file, file_name):
                 encrypted.write(char)
     encrypted.close
 
+def getKey(file_name):
+    # Opens and reads the key file
+    key_file = open(file_name + '.key', 'r')
+    key_dic = {}
+    line = key_file.readline().strip('\n')
+
+    while line:
+        key_val = line.split(',')
+        key_dic[key_val[0]] = key_val[1]
+        line = key_file.readline().strip('\n')
+
+    key_file.close()
+    return key_dic
+
 def decrypt(file_name):
+    # Retrieves the decryption key
+    key_dic = getKey(file_name)
+
+    # Starts decryption
+    decrypted = open(file_name + '2.txt', 'w')
 
     
+
+    decrypted.close()
 
 # --- MAIN
 file_name = input('Enter a filename: ')
