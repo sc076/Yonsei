@@ -1,11 +1,3 @@
-"""1. Reads messages in a tetxt file, and encodes the messages
-    saved in a new file.
-    2. For encoding a substitution key should be used
-    3. Unencrypted message files have the extension txt
-    4. Encrypted message files have the extension enc
-    5. New key should be created everytime (file .key)
-    6. Decrypt with a given file and a key """
-
 import sys
 import random
 import copy
@@ -101,7 +93,7 @@ def decrypt(o_file, file_name):
     o_file.close()
 
     # Starts decryption
-    decrypted = open(file_name + '2.txt', 'w')
+    decrypted = open(file_name + '.txt', 'w')
 
     for char in content:
         if char.isupper():
