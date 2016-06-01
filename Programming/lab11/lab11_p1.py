@@ -7,9 +7,3 @@ def addDialyTemp(mydict, day, temperature):
         mydict[day] = temperature
 
     return mydict
-
-
-temp = {'Mon': '20', 'Tue': '30', 'Wed': '12', 'Fri': '23', 'Sat': 25 }
-
-temp_updated = addDialyTemp(temp, 'Sat', '30')
-print('Test:', temp_updated)

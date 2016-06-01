@@ -72,6 +72,9 @@ def encrypt(o_file, file_name):
     encrypted.close()
 
 def getKey(file_name):
+    """ Opens the file containing encrypting key and
+        fills a dictionary with the values """
+
     # Opens and reads the key file
     key_file = open(file_name + '.key', 'r')
     key_dic = {}
@@ -86,6 +89,11 @@ def getKey(file_name):
     return key_dic
 
 def decrypt(o_file, file_name):
+    """ Function for used to decrypt the message
+        First gets the encryption key then reads the
+        message from the file and does the decryption
+    """
+
     # Retrieves the decryption key
     key_dic = getKey(file_name)
 

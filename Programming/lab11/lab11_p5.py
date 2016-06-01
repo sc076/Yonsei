@@ -89,7 +89,7 @@ def displayUnscheduledWorkerHours(workernum, probabilities):
           'CLEarly_15':<num>, 'CLEarly_30':<num>,'CShowup':<num>}
 
 
-       where each <num> is a value between 1-100, displays one of
+       where each <num> is a value between 1-100,
 
          worker <worker_num> -- no show --   or
          worker <worker_num> <mins_late> mins late  and/or
@@ -103,29 +103,27 @@ def displayUnscheduledWorkerHours(workernum, probabilities):
 
     if eventOccurred(probabilities['CLate_15']):
         mins_late = 15
+        workers['late_15'] += 1
     elif eventOccurred(probabilities['CLate_30']):
         mins_late = 30
+        workers['late_30'] += 1
     elif eventOccurred(probabilities['CLate_45']):
         mins_late = 45
+        workers['late_45'] += 1
 
     if eventOccurred(probabilities['CLEarly_15']):
         mins_left_early = 15
+        workers['early_15'] += 1
     elif eventOccurred(probabilities['CLEarly_30']):
         mins_left_early = 30
-
-    print('{0:>15}'.format('worker'), str(workernum) + ': ', end='')
-    if mins_late != 0:
-        print(mins_late, 'mins late  ', end='')
-
-    if mins_left_early != 0:
-        print('left', mins_left_early, 'mins early', end='')
+        workers['early_30'] += 1
 
     if (mins_late == 0) and (mins_left_early == 0):
-        print('whole time', end='')
+        workers['whole_time'] += 1
 
 def executeScheduledSimulation(runs, probabilities, days, time_slots):
 
-    ''' Displays a simulated week of workers in attendance for all
+    ''' a simulated week of workers in attendance for all
         time slots, based on a scheduled worker schedule.
     '''
     total_workers = 0
@@ -155,52 +153,46 @@ def executeScheduledSimulation(runs, probabilities, days, time_slots):
 
     return total_workers
 
-def executeUnscheduledSimulation(probabilities, days, time_slots):
+def executeUnscheduledSimulation(runs, probabilities, days, time_slots):
 
     ''' Displays a simulated week of workers in attendance for all
         time slots, based on an unscheduled worker schedule.
     '''
+    total_workers = 0
 
     # for each day in the week
-    for day in days:
-        print(day)
-        print('-------')
+    for i in range(runs):
+        for day in days:
+            if (day == 'Sunday'):   # sunday
+                current_timeslot = '12:00pm'
+                num_timeslots = 3
+            elif day in days[1:5]: # mon-thurs?
+                current_timeslot = '8:00am'
+                num_timeslots = 5
+            else:  # fri, sat
+                current_timeslot = '8:00am'
+                num_timeslots = 6
 
-        if (day == 'Sunday'):   # sunday
-            current_timeslot = '12:00pm'
-            num_timeslots = 3
-        elif day in days[1:5]: # mon-thurs?
-            current_timeslot = '8:00am'
-            num_timeslots = 5
-        else:  # fri, sat
-            current_timeslot = '8:00am'
-            num_timeslots = 6
+            # find loc of current_timeslot in tuple time_slots
+            index_val = time_slots.index(current_timeslot)
 
-        # find loc of current_timeslot in tuple time_slots
-        index_val = time_slots.index(current_timeslot)
+            # iterate through num_timeslots starting with current time slot
+            for time_slot in time_slots[index_val:index_val + num_timeslots]:
+                numworkers = \
+                 numWorkersShowedUp(probabilities['CShowup'], num_members)
+                total_workers += numworkers
 
-        # iterate through num_timeslots starting with current time slot
-        for time_slot in time_slots[index_val:index_val + num_timeslots]:
-            numworkers = \
-             numWorkersShowedUp(probabilities['CShowup'], num_members)
-            print('{0:>7}'.format(time_slot), ' ', end='')
+                if numworkers == 1:
+                    num_stayed = 1
+                elif numworkers == 0 or numworkers == 2:
+                    num_stayed = numworkers
+                else:
+                    num_stayed = 2
+                    workers['turned_away'] += (numworkers-2)
 
-            if numworkers == 1:
-                print(numworkers, 'worker came')
-                num_stayed = 1
-            elif numworkers == 0 or numworkers == 2:
-                print(numworkers, 'workers came')
-                num_stayed = numworkers
-            else:
-                print(numworkers, 'workers came (' + \
-                str(numworkers - 2), 'went home)' )
-                num_stayed = 2
-
-            for k in range(num_stayed): # at most 2 workers stay to work
-                displayUnscheduledWorkerHours(k+1, probabilities)
-                print()
-            print()
-
+                for k in range(num_stayed): # at most 2 workers stay to work
+                    displayUnscheduledWorkerHours(k+1, probabilities)
+    return total_workers
 # ---- main
 
 # init
@@ -242,12 +234,12 @@ while not valid_input:
                 int(input('(1)scheduled, (2)unscheduled simulation? '))
 
         if response == 1:
-            print('<< SCHEDULED WORKER SIMULATION >>\n')
+            print('<< SCHEDULED WORKER SIMULATION >>')
             nr_workers = executeScheduledSimulation(runs, sched_probabilities,
                                        days, time_slots)
         else:
-            print('<< UNSCHEDULED WORKER SIMULATION >>\n')
-            executeUnscheduledSimulation(unsched_probabilities,
+            print('<< UNSCHEDULED WORKER SIMULATION >>')
+            nr_workers = executeUnscheduledSimulation(runs, unsched_probabilities,
                                          days, time_slots)
 
         #Prints average num of workers
@@ -257,7 +249,11 @@ while not valid_input:
         print('Average nr workers 30min late:', "{0:.2f}".format(workers['late_30']/(runs*35)))
         print('Average nr workers 45min late:', "{0:.2f}".format(workers['late_45']/(runs*35)))
         print('Average nr workers who left 15min early:', "{0:.2f}".format(workers['early_15']/(runs*35)))
-        print('Average nr workers who left 30min early:', "{0:.2f}".format(workers['early_30']/(runs*35)))                                 
+        print('Average nr workers who left 30min early:', "{0:.2f}".format(workers['early_30']/(runs*35)))
+        # Only if unscheduled simulation is selected
+        if response == 2:
+            print('Average nr workers turned away:', "{0:.2f}".format(workers['turned_away']/(runs*35)))
+
         valid_input = True
 
     except ValueError:

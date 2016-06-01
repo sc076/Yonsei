@@ -7,6 +7,10 @@ hexadecimal RGB color and converts them to base 10.
 hexadec = {'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15}
 
 def convert(color):
+    """ Converts the colors depending on their hexadecimal
+        representation
+    """
+
     col1 = 0
     col2 = 0
     if color[0].isalpha():
@@ -29,6 +33,7 @@ red = convert(color[0:2])
 green = convert(color[2:4])
 blue = convert(color[4:6])
 
+# Outputs the result
 print('Red:', red)
 print('Blue:', blue)
 print('Green:', green)
