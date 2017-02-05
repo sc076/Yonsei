@@ -2,10 +2,31 @@ body {
   background-color: white;
 }
 
+.navbar {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+.navbar:hover{
+  opacity: 1;
+  filter: alpha(opacity=1);
+}
+
 .navbar-header {
   font-family: fantasy;
 }
 
 .nav a {
   font-size: 20px;
+}
+
+.carousel-inner img {
+  margin:auto;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .carousel-caption {
+    display: none;
+  }
 }
