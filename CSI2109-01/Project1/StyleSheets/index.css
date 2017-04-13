@@ -3,6 +3,8 @@ body {
 }
 
 .navbar {
+  width: 100%;
+  height: 100px;
   opacity: 0.5;
   filter: alpha(opacity=50);
 }
@@ -14,6 +16,11 @@ body {
 
 .navbar-header {
   font-family: fantasy;
+}
+
+.navbar-nav li a {
+  line-height: 70px;
+  padding-top: 10;
 }
 
 .nav a {
