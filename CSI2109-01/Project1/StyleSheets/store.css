@@ -10,3 +10,14 @@
   margin:auto;
   width: 50%;
 }
+
+.thumbnail {
+  padding: 0 0 15px 0;
+  border: none;
+  border-radius: 0;
+}
+
+.thumbnail h4 {
+  margin-top: 15px;
+  color: #555;
+}
