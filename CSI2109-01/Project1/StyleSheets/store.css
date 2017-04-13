@@ -4,5 +4,9 @@
 
 .section {
   font-size: 25px;
+}
 
+.featured {
+  margin:auto;
+  width: 50%;
 }
