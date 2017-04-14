@@ -4,7 +4,7 @@ body {
 
 .carousel-inner img {
   margin:auto;
-  width: 100%;
+  width: 50%;
 }
 
 @media (max-width: 600px) {
