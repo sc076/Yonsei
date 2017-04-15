@@ -1,4 +1,31 @@
+.title {
+  font-size: 45px;
+  font-family: 'Righteous', cursive;
+}
+
 .container {
-  font-size: 20px;
-  padding: 120px;
+  padding: 140px;
+}
+
+.container img{
+  width: 60%;
+  height: auto;
+  padding-bottom: 20px;
+}
+
+td {
+  font-size: 18px;
+
+}
+
+.info {
+  font-size: 23px;
+  font-family: 'Rajdhani', sans-serif;
+
+}
+
+h4 {
+  font-family: 'Righteous', cursive;
+  font-size: 25px;
+  font-weight: bold;
 }
