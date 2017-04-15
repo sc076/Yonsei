@@ -24,3 +24,7 @@ body {
   height: 80%;
   opacity: 0.7;
 }
+
+p {
+  font-size: 12px;
+}
