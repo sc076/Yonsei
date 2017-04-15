@@ -11,10 +11,11 @@
   filter: alpha(opacity=1);
 }
 
-.navbar-header {
-  font-family: fantasy;
+.navbar-brand {
+  font-size: 40px;
+  font-family: 'Pacifico', cursive;
+  padding: 25px;
 }
-
 .navbar-nav li a {
   line-height: 70px;
   padding-top: 10;

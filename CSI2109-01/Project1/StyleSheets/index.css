@@ -7,6 +7,11 @@ body {
   width: 50%;
 }
 
+.carousel-inner > .item > img {
+  width: auto;
+  height:780px;
+}
+
 @media (max-width: 600px) {
   .carousel-caption {
     display: none;
@@ -27,4 +32,8 @@ body {
 
 p {
   font-size: 12px;
+}
+
+h {
+  font-size: 40px;
 }
