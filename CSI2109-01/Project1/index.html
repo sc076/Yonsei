@@ -7,30 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Pacifico|Rubik+Mono+One|Righteous|Rajdhani" rel="stylesheet">
     <link rel="stylesheet" href="StyleSheets/index.css">
-    <link rel="stylesheet" href="StyleSheets/navbar.css">
+    
     <link rel="stylesheet" href="StyleSheets/footer.css">
+
+    <link rel="import" href="navigation.html">
+
   </head>
 
   <body>
-    <!-- navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="index.html"> Experience music</a>
-        </div>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.html">Home</a></li>
-            <li><a href="store.html">Store</a></li>
-            <li><a href="contacts.html">Contacts</a></li>
-            <li><a href="about.html">About</a></li>
-          </ul>
-      </div>
-    </nav>
+    <div id="result">
+      <script type="text/javascript">
+      $('#result').load('navigation.html');
+      </script>
+    </div>
 
     <!-- carousel with pictures -->
     <div id="musicGallery" class="carousel slide" data-ride="carousel">
