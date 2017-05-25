@@ -1,57 +1,60 @@
-@charset "UTF-8"
 
 .progress-bar {
-  color: #333;
+    color: #333;
 }
 
 * {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  outline: none;
+    -webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	outline: none;
 }
 
-.form-control {
-  position: relative;
-  font-size: 16px;
-  height: auto;
-  padding: 10px;
-  @include box-sizing(border-box);
+    .form-control {
+	  position: relative;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 20px;
+	  height: auto;
+		@include box-sizing(border-box);
 
-  &:focus {
-    z-index: 100;
-  }
-}
+	}
 
 .login-form {
-  margin-top: 60px;
+  padding: 150px 150px 0 0;
+  position: relative;
+  padding-bottom: 10%;
 }
 
 form[role=login] {
-  color: #5d5d5d;
-  background: #f2f2f2;
-  padding: 26px;
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
+	color: #5d5d5d;
+	padding: 20px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
 }
 
-form[role=login] input,
-form[role=login] button {
-  font-size: 18px;
-  margin: 16px 0;
-}
-
-form[role=login] >div {
-  text-align: center;
-}
+	form[role=login] input,
+	form[role=login] button {
+		margin: 16px 20px 30px 50px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 20px;
+	}
+	form[role=login] > div {
+		text-align: center;
+	}
 
 .form-links {
-  text-align: center;
-  margin-top: 1em;
-  margin-bottom: 50px;
+	text-align: center;
+	margin-top: 1em;
+	margin-bottom: 50px;
 }
+	.form-links a {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 20px;
+		color: #fff;
+	}
 
-.form-links a {
-  color: #fff;
+.title {
+  font-size: 30px;
+  font-family: 'Righteous', cursive;
 }
