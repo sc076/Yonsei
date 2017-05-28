@@ -6,18 +6,13 @@ var express = require('express'),
   bodyParser = require('body-parser');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Tardydb');
+mongoose.connect('mongodb://localhost/Tasksdb');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 var routes = require('./api/routes/!tardy');
 routes(app);
-
-app.set('view engine', 'pug');
-app.get('/', function(req, res) {
-  res.render('template/template', {title: 'Hey', message: 'Hello World!'});
-})
 
 app.listen(port);
 
