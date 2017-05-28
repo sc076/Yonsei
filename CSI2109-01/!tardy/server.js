@@ -1,6 +1,6 @@
 var express = require('express'),
   app = express(),
-  port = process.env.PORT || 8000,  
+  port = process.env.PORT || 8000,
   mongoose = require('mongoose'),
   Task = require('./api/models/!tardy'),
   bodyParser = require('body-parser');
@@ -13,6 +13,11 @@ app.use(bodyParser.json());
 
 var routes = require('./api/routes/!tardy');
 routes(app);
+
+app.set('view engine', 'pug');
+app.get('/', function(req, res) {
+  res.render('template/template', {title: 'Hey', message: 'Hello World!'});
+})
 
 app.listen(port);
 
