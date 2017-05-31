@@ -6,5 +6,5 @@ var mongoose = require('mongoose'),
 
 // here is a message send to the page
 exports.getResponse = function(req, res) {
-  res.json({ message: 'Here goes response' });
+
 };

@@ -1,0 +1,129 @@
+doctype html
+//
+  Eventually by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+html
+  head
+    title !Tardy | Don&apos;t be late!
+    | &#x9;&#x9;
+    meta(charset='utf-8')
+    | &#x9;&#x9;
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+    //if lte IE 8
+      script(src='assets/js/ie/html5shiv.js')
+    | &#x9;&#x9;
+    link(rel='stylesheet', href='assets/css/main.css')
+    //if lte IE 8
+      link(rel='stylesheet', href='assets/css/ie8.css')
+    //if lte IE 9
+      link(rel='stylesheet', href='assets/css/ie9.css')
+  | &#x9;
+  style.
+    .contentbox{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 10px;
+    background: rgba(84, 84, 84, 0.3);
+    border: 1px solid gray;
+    box-sizing: border-box;
+    border-radius: 15px;
+    }
+  | &#x9;
+  body
+    // Header
+    header#header
+      // Signup Form
+      form#signup-form(method='post', action='#')
+        div(style='float:left;')
+          .dropdown
+            img(src='tardy_sb_icon_wht.png', width='40,', height='40;', alt='icon')
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  
+            .dropdown-content
+              a(href='#', style='color: black;') !Tardy
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              a(href='#map', style='color: black;') Map
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              a(href='#route', style='color: black;') Route
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              a(href='#weather', style='color: black;') Weather
+        | &#x9;&#x9;&#x9;&#x9;&#x9;
+        div(style='float:left;')
+          select(name='강의실')
+            option(value='강의실', style='color: black;') &#xAC15;&#xC758;&#xC2E4;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            option(value='공A', style='color: black;') &#xACF5;A
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            option(value='공B', style='color: black;') &#xACF5;B
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            option(value='공C', style='color: black;') &#xACF5;C
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            option(value='공D', style='color: black;') &#xACF5;D
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            option(value='백양관', style='color: black;') &#xBC31;&#xC591;&#xAD00;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            option(value='교과관', style='color: black;') &#xAD50;&#xACFC;&#xAD00;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            option(value='위당관', style='color: black;') &#xC704;&#xB2F9;&#xAD00;
+        | &#x9;&#x9;&#x9;&#x9;&#x9;
+        div(style='float:left;')
+          input(type='time', name='arrivaltime')
+        | &#x9;&#x9;&#x9;&#x9;&#x9;
+        div(style='float:left;')
+          input(type='submit', value='submit')
+      | &#x9;&#x9;&#x9;&#x9;
+      h1 11 : 38
+      | &#x9;&#x9;&#x9;&#x9;
+      p
+        | This site will teach you the departure time
+        br
+        | &#x9;&#x9;&#x9;&#x9;depending on your schedule
+    // Map
+    #map.contentbox
+      img(src='shinchon.JPG', width='100%,', height='auto;')
+      | &#x9;&#x9;&#x9;&#x9;
+      p#element  Departure time: 11:30
+      | &#x9;&#x9;&#x9;&#x9;
+      p#element Arrive time: 13:00
+    // Route
+    #route.contentbox
+      p#element &lt;Walk&gt; 200m towards the bus stop
+      | &#x9;&#x9;&#x9;&#x9;
+      p#element &lt;Bus&gt; Get on Bus#: 421
+      | &#x9;&#x9;&#x9;&#x9;
+      p#element &lt;Bus&gt; Get off at: Yonsei University
+    // Weather
+    #weather.contentbox
+      img(src='weather.JPG', width='100%,', height='auto;')
+      | &#x9;&#x9;&#x9;&#x9;
+      p#element
+        | You should bring umbrella
+    // Footer
+    footer#footer
+      ul.icons
+        li
+          a.icon.fa-twitter(href='#')
+            span.label Twitter
+        | &#x9;&#x9;&#x9;&#x9;&#x9;
+        li
+          a.icon.fa-instagram(href='#')
+            span.label Instagram
+        | &#x9;&#x9;&#x9;&#x9;&#x9;
+        li
+          a.icon.fa-github(href='#')
+            span.label GitHub
+        | &#x9;&#x9;&#x9;&#x9;&#x9;
+        li
+          a.icon.fa-envelope-o(href='#')
+            span.label Email
+      | &#x9;&#x9;&#x9;&#x9;
+      ul.copyright
+        li &copy; !Tardy.
+        li
+          | Credits: 
+          a(href='http://html5up.net') HTML5 UP
+    // Scripts
+    //if lte IE 8
+      script(src='assets/js/ie/respond.min.js')
+    | &#x9;&#x9;&#x9;
+    script(src='assets/js/main.js')
