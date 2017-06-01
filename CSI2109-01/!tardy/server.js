@@ -1,20 +1,21 @@
 var express = require('express'),
   app = express(),
+  fs = require('fs'),
   path = require('path'),
-  port = process.env.PORT || 8000,
-  mongoose = require('mongoose'),
-  Task = require('./api/models/tardyModel'),
+  port = process.env.PORT || 27017,
+ // mongoose = require('mongoose'),
+  //Task = require('./api/models/tardyModel'),
   bodyParser = require('body-parser');
-
+/*
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/Taskdb');
-
+*/
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 
 var routes = require('./api/routes/tardyRoutes');
-routes(app);
+routes(app, fs);
 
 // view engine setup
 app.set('view engine', 'pug');
