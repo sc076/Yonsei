@@ -5,7 +5,7 @@ module.exports = function(app, fs) {
 
   app.get('/', function(req, res) {
     //res.render(path.join(__dirname+'/../views/index'));
-    res.render(path.join(__dirname+'/../views/index', { 'hello' : Dijk(['4','1'])}));
+    res.render(path.join(__dirname+'/../views/index'));
     //__dirname : It will resolve to your project folder.
   });
 

@@ -1,127 +1,90 @@
 doctype html
-//
-  Eventually by HTML5 UP
-  html5up.net | @ajlkn
-  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 html
   head
     title !Tardy | Don&apos;t be late!
-    | 
+    |
     meta(charset='utf-8')
-    | 
-    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
-    //if lte IE 8
-      script(src='assets/js/ie/html5shiv.js')
-    | 
-    link(rel='stylesheet', href='assets/css/main.css')
-    //if lte IE 8
-      link(rel='stylesheet', href='assets/css/ie8.css')
-    //if lte IE 9
-      link(rel='stylesheet', href='assets/css/ie9.css')
-  | 
-  style.
-    .contentbox{
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding: 10px;
-    background: rgba(84, 84, 84, 0.3);
-    border: 1px solid gray;
-    box-sizing: border-box;
-    border-radius: 15px;
-    }
-  | 
-  body
-    block param
-      h1 #{hello}
-    // Header
-    header#header
-      // Signup Form
-      form#signup-form(method='post', action='#')
-        div(style='float:left;')
+    |
+    meta(name='viewport', content='initial-scale=1.0')
+    |
+    title index
+    |
+    link(href='http://fonts.googleapis.com/css?family=Ubuntu:300,700', rel='stylesheet', type='text/css')
+    |
+    link(rel='stylesheet', href='/css/standardize.css')
+    |
+    link(rel='stylesheet', href='/css/index-grid.css')
+    |
+    link(rel='stylesheet', href='/css/index.css')
+  body.body.page-index.clearfix
+    .container._container.container-1.js-bg
+      .container._container
+        .container._element.container-3.js-logo
           .dropdown
-            img(src='tardy_sb_icon_wht.png', width='40,', height='40;', alt='icon')
-            |   
+            span
+              img(src='tardy_sb_icon_wht.png', style='width: 40, height: 40;', alt='icon')
+            |
             .dropdown-content
-              a(href='#', style='color: black;') !Tardy
-              | 
-              a(href='#map', style='color: black;') Map
-              | 
-              a(href='#route', style='color: black;') Route
-              | 
-              a(href='#weather', style='color: black;') Weather
-        | 
-        div(style='float:left;')
-          select(name='강의실')
-            option(value='강의실', style='color: black;') &#xAC15;&#xC758;&#xC2E4;
-            | 
-            option(value='공A', style='color: black;') &#xACF5;A
-            | 
-            option(value='공B', style='color: black;') &#xACF5;B
-            | 
-            option(value='공C', style='color: black;') &#xACF5;C
-            | 
-            option(value='공D', style='color: black;') &#xACF5;D
-            | 
-            option(value='백양관', style='color: black;') &#xBC31;&#xC591;&#xAD00;
-            | 
-            option(value='교과관', style='color: black;') &#xAD50;&#xACFC;&#xAD00;
-            | 
-            option(value='위당관', style='color: black;') &#xC704;&#xB2F9;&#xAD00;
-        | 
-        div(style='float:left;')
-          input(type='time', name='arrivaltime')
-        | 
-        div(style='float:left;')
-          input(type='submit', value='submit')
-      | 
-      h1 11 : 38
-      | 
-      p
-        | This site will teach you the departure time
-        br
-        | depending on your schedule
-    // Map
-    #map.contentbox
-      include google.pug
-    // Route
-    #route.contentbox
-      p#element &lt;Walk&gt; 200m towards the bus stop
-      | 
-      p#element &lt;Bus&gt; Get on Bus#: 421
-      | 
-      p#element &lt;Bus&gt; Get off at: Yonsei University
-    // Weather
-    #weather.contentbox
-      img(src='weather.JPG', width='100%,', height='auto;')
-      | 
-      p#element
-        | You should bring umbrella
-    // Footer
-    footer#footer
-      ul.icons
-        li
-          a.icon.fa-twitter(href='#')
-            span.label Twitter
-        | 
-        li
-          a.icon.fa-instagram(href='#')
-            span.label Instagram
-        | 
-        li
-          a.icon.fa-github(href='#')
-            span.label GitHub
-        | 
-        li
-          a.icon.fa-envelope-o(href='#')
-            span.label Email
-      | 
-      ul.copyright
-        li &copy; !Tardy.
-        li
-          | Credits: 
-          a(href='http://html5up.net') HTML5 UP
-    // Scripts
-    //if lte IE 8
-    script(src='assets/js/ie/respond.min.js')
-    | 
-    script(src='assets/js/main.js')
+              a(href='#', style='color: rgb(64, 224, 208);')
+                b !Tardy
+              br
+              |
+              a(href='#map') Map
+              br
+              |
+              a(href='#route') Route
+              br
+              |
+              a(href='#weather') Weather
+              br
+        |
+        form#signup-form(method='post', action='#')
+          .container._element.container-4.js-destination
+            select(name='강의실')
+              option(value='강의실') &#xAC15;&#xC758;&#xC2E4;
+              |
+              option(value='공A') &#xACF5;A
+              |
+              option(value='공B') &#xACF5;B
+              |
+              option(value='공C') &#xACF5;C
+              |
+              option(value='공D') &#xACF5;D
+              |
+              option(value='백양관') &#xBC31;&#xC591;&#xAD00;
+              |
+              option(value='교과관') &#xAD50;&#xACFC;&#xAD00;
+              |
+              option(value='위당관') &#xC704;&#xB2F9;&#xAD00;
+          |
+          .container._element.container-5.js-arrivaltime
+            input(type='time', name='arrivaltime')
+          |
+          button._button.js-submit Submit
+        |
+        script(type='text/javascript').
+          function GetClock(){
+          var d=new Date();
+          var nhour=d.getHours(),nmin=d.getMinutes(),ap;
+          if(nhour==0){ap=" AM";nhour=12;}
+          else if(nhour<12){ap=" AM";}
+          else if(nhour==12){ap=" PM";}
+          else if(nhour>12){ap=" PM";nhour-=12;}
+          if(nmin<=9) nmin="0"+nmin;
+          document.getElementById('clockbox').innerHTML=""+nhour+":"+nmin+ap+"";
+          }
+          window.onload=function(){
+          GetClock();
+          setInterval(GetClock,1000);
+          }
+        |
+        p#clockbox.text.text-1 00:00 AM
+        |
+        p.text.text-2
+          | Always late? We will calculate your departure time if you tell us your destination and required arrival time!
+      |
+      #map.container._element.container-6.js-contentbox
+      |
+      #route.container._element.container-7.js-contentbox
+      |
+      #weather.container._element.container-8.js-contentbox
