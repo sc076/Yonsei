@@ -95,11 +95,11 @@ head
           xmlhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
           myObj = JSON.parse(this.responseText);
-          document.getElementById("weatherbanner").innerHTML = myObj.data.temperature + "\\260C " + myObj.data.skytext + " (Seoul, KR)";
+          document.getElementById("weatherbanner").innerHTML = myObj.data.temperature + "\260C " + myObj.data.skytext + " (Seoul, KR)";
           document.getElementById("dateday").innerHTML = myObj.data.day+" ("+myObj.data.date+")";
-          document.getElementById("temp").innerHTML = myObj.data.temperature + " \\260C";
+          document.getElementById("temp").innerHTML = myObj.data.temperature + " \260C";
           document.getElementById("skycontext").innerHTML = myObj.data.skytext;
-          document.getElementById("humwind").innerHTML = "<b>Humidity:</b>\\xa0\xa0" + myObj.data.humidity + "%\xa0\xa0\xa0\xa0" + "\xa0\xa0\xa0\xa0<b>Wind:</b>\xa0\xa0" + myObj.data.wind;
+          document.getElementById("humwind").innerHTML = "<b>Humidity:</b>\xa0\xa0" + myObj.data.humidity + "%\xa0\xa0\xa0\xa0" + "\xa0\xa0\xa0\xa0<b>Wind:</b>\xa0\xa0" + myObj.data.wind;
           var constring = myObj.data.skytext;
           var skycon = constring.split(" ");
           var len = skycon.length-1;
