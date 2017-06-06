@@ -76,7 +76,8 @@ body {
 .dropdown-content a{
   color: rgb(255, 255, 255);
   text-align: center;
-  font-size: 1.25em;
+  font-size: 1.5em;
+  font-weight: 700;
 }
 
 .dropdown:hover .dropdown-content {
@@ -151,25 +152,11 @@ input{
   top: 1584px;
   left: 6.5%;
   width: 86.9791666666%;
-  height: 300px;
+  height: 546px;
   border-width: 3px;
   border-color: rgb(52, 52, 52);
   border-radius: 25px;
   background-color: rgb(28, 28, 28);
-  padding: 1em;
-  text-align: center;
-}
-
-#sky{
-  width: 100px;
-  height: 100px;
-}
-
-.container-9 {
-  top: 1890px;
-  left: 6.5%;
-  width: 86.9791666666%;
-  height: 50px;
 }
 
 .text-1 {
@@ -183,19 +170,8 @@ input{
   text-align: center;
 }
 
-#weatherbanner{
-  top: 270px;
-  left: 6.4990234375%;
-  z-index: 1;
-  width: 86.9986979166%;
-  min-height: 50px;
-  font-size: 1.25em;
-  font-weight: 700;
-  text-align: center;
-}
-
 .text-2 {
-  top: 350px;
+  top: 281px;
   left: 6.4990234375%;
   z-index: 1;
   width: 86.9986979166%;
@@ -260,13 +236,8 @@ input{
     font-size: 3.125em;
   }
 
-  #weatherbanner{
-    top: 210px;
-    left: 6.5%;
-  }
-
   .container .text-2 {
-    top: 310px;
+    top: 266px;
     left: 6.5%;
   }
 }
@@ -389,13 +360,6 @@ input{
 
   .container .container-8 {
     top: 1398px;
-    height: 220px;
-    left: 6.4999999999%;
-  }
-
-  .container .container-9 {
-    top: 1624px;
-    height: 30px;
     left: 6.4999999999%;
   }
 
@@ -405,14 +369,8 @@ input{
     font-size: 3.2em;
   }
 
-  #weatherbanner{
-    top: 130px;
-    left: 6.4990234375%;
-    font-size: 10px;
-  }
-
   .container .text-2 {
-    top: 182px;
+    top: 153px;
     left: 6.4990234375%;
     font-size: 10px;
   }
